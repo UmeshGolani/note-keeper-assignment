@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+    /* Corrected 'border' to 'box-sizing' */
+}
+
+html,
+body {
+    background-color: yellowgreen;
+    color: #202124;
+    font-size: 15px;
+    margin: 0;
+    min-width: 360px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+#colorOptions{
+  display: none;
+}
+
+.editcolorOptionsActive{
+  display: block;
+  position: absolute;
+  background-color: wheat;
+  border-radius: 20px;
+  z-index: 20;
+}
+
+.hidden-color{
+  display: none;
+}
+
+
+.color, .editcolor {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+  /* position: absolute; */
+}
+
+/* login register form styling */
+.my-form-body{
+  width: 100vw;
+  height: 100vh;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.my-form>form{
+  /* width: 100vw; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  gap: 10px;
+}
+
+.end-of-form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid beige; */
+  gap: 80px;
+}
+.end-of-form>button{
+  width: 6rem;
+  background-color: #035f18;
+  color: beige;
+}
+
+.end-of-form>button:hover{
+  background-color: #097121;
+  color: cadetblue;
+}
+
+/* login register form styling end*/
+
+
+i {
+    font-size: 30px;
+}
+
+#notes-list{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* height: 60rem; */
+  /* width: 80rem; */
+  /* border: 1px solid black; */
+  margin: 10px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.notes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  /* height: 6rem; */
+  /* width: 10rem; */
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.add-notes{
+  width: 20rem;
+  background-color: chartreuse;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  /* gap: 3px; */
+  border-radius: 10px;
+}
+
+#noteInputs{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  /* border: 1px solid black; */
+  height: 15rem;
+  /* gap: 0.11px; */
+}
+
+#text, #label ,#label, #title, #color, #search{
+  height: 2rem;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.buttons{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 15%;
+  padding: 5px;
+  margin: 5px;
+}
+
+.buttons>button{
+  background-color: purple;
+  width: 30%;
+  height: 100%;
+  border-radius: 5px;
+  color: blanchedalmond;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.head-add-notes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.notes-add-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.search-box-div{
+  display: flex;
+  gap: 0px;
+  background-color: white;
+  width: 100%;
+  border-radius: 5px;
+  /* border: 1px solid black; */
+}
+.search-box-div>#search{
+  border: none !important;
+  outline: none;
+  flex: 1;
+}
+.search-box-div>button{
+  margin-left: auto;
+}
+.notes-heading-image{
+  display: flex;
+  width: 25%;
+  /* border: 1px solid black; */
+  gap: 2px;
+}
+.header-setup{
+  display: flex;
+  /* gap: 5px; */
+  margin-top: 5px;
+  /* padding-top: 5px; */
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  justify-self: end;
+}
+
+.logout-button>button{
+  display: flex;
+  justify-self:flex-end;
+  margin: 10px;
+  padding: 10px;
+  height: 100%;
+}
+
+.logout-button>button>a{
+
+}
+
+/* drawer */
+.menu-trigger {
+	position: absolute;
+	right: -40px;
+	top: 0;
+	z-index: 10;
+	cursor: pointer;
+	background: #035f18;
+	width: 45px;
+}
+.menu-trigger span {
+	display: block;
+	width: 25px;
+	margin: 5px 10px;
+	height: 2px;
+	margin-bottom: 8px;
+	background: #fff;
+	transition: all ease-in 0.3s;
+}
+.triggerOpened span:nth-child(2) {
+	opacity: 0;
+	transition: all ease-in 0.3s;
+}
+.triggerOpened span:first-child {
+	transform: rotate(45deg) translate(12px, 4px);
+	transition: all ease-in 0.3s;
+}
+.triggerOpened span:last-child {
+	transform: rotate(-45deg) translate(10px, -3px);
+	transition: all ease-in 0.3s;
+}
+
+.menu {
+	position: fixed;
+	left: -150px;
+	top: 0;
+	padding-top: 30px;
+	width: 150px;
+	height: 100vh;
+	background: #035f18;
+	transition: all ease-in 0.3s;
+}
+.menuOpen {
+	left: 0;
+	transition: all ease-in 0.3s;
+}
+.menu li {
+	padding: 5px 0;
+	font-size: 13px;
+	font-weight: normal;
+}
+.menu li a {
+	display: block;
+	text-decoration: none;
+	color: #eee;
+	padding: 15px;
+	border-left: 10px solid transparent;
+	transition: all ease-in 0.3s;
+}
+
+.menu li a:hover,
+.menu li a:active {
+	background: #043c2e;
+	border-left: 10px solid #083d23;
+	transition: all ease-in 0.3s;
+}
+/* drawer end */

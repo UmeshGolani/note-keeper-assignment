@@ -1,0 +1,29 @@
+{
+    "name": "notes",
+    "version": "1.0.0",
+    "description": "Full stack note keeper build with Node and ejs.",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "nodemon main"
+    },
+    "author": "umesh",
+    "license": "",
+    "dependencies": {
+        "axios": "^1.6.8",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "colors": "^1.4.0",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "ejs": "^3.1.10",
+        "express": "^4.18.2",
+        "express-async-errors": "^3.1.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^6.8.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.0"
+    }
+}

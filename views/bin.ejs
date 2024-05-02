@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bin</title>
+</head>
+<body>
+
+    <!-- drawer -->
+    <ul class="menu">
+        <div class="menu-trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <li><a href="/notes">NOTES</a></li>
+        <li><a href="/archieve">ARCHIEVE</a></li>
+        <li><a href="/bin">BIN</a></li>
+    </ul>
+    <!-- drawer end -->
+
+
+    <!-- Search input box -->
+    <div class="header-setup">
+        <div class="notes-heading-image">
+            <img src="img/notes.png" alt="" width="20%">
+            <h1>Bin</h1>
+        </div>
+    
+        <!-- Search input box -->
+        <div class="search-box-div">
+        <img src="img/svgexport-23.svg" alt="" />
+        <input type="text" id="search" placeholder="Search...">
+        <button id="searchBtn"><img src="img/svgexport-6.svg" alt="" /></button>
+        </div>
+    
+        <div class="logout-button">
+        <button><a href="/logout">Logout</a></button></div>
+    
+    </div>
+
+    
+    
+
+    <!-- List of notes -->
+    <ul id="notes-list">
+        
+    </ul>
+
+    <script src="binScript.js"></script>
+</body>
+</html>

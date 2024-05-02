@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Notes App</title>
+</head>
+<body>
+
+    <!-- drawer -->
+    <ul class="menu">
+        <div class="menu-trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <li><a href="/notes">NOTES</a></li>
+        <li><a href="/archieve">ARCHIEVE</a></li>
+        <li><a href="/bin">BIN</a></li>
+    </ul>
+    <!-- drawer end -->
+
+    <div class="header-setup">
+    <div class="notes-heading-image">
+        <img src="img/notes.png" alt="" width="20%">
+        <h1>Notes</h1>
+    </div>
+
+    <!-- Search input box -->
+    <div class="search-box-div">
+    <img src="img/svgexport-23.svg" alt="" />
+    <input type="text" id="search" placeholder="Search...">
+    <button id="searchBtn"><img src="img/svgexport-6.svg" alt="" /></button>
+    </div>
+
+    <div class="logout-button">
+    <button><a href="/logout">Logout</a></button></div>
+
+</div>
+
+
+    <div class="head-add-notes">
+    <h2>Add New Note</h2>
+    <!-- Input box to add new note -->
+    <div class="add-notes">
+        
+    <input type="text" id="title" placeholder="Title" onclick="showNoteInputs()">
+    <div id="noteInputs" style="display: none;">
+        <input type="text" id="text" placeholder="Text">
+        <button id="colors" ><img src="img/svgexport-16.svg" alt="" /></button>
+        <div id="colorOptions">
+            <div class="color" style="background-color: red;"></div>
+            <div class="color" style="background-color: blue;"></div>
+            <div class="color" style="background-color: green;"></div>
+            <div class="color" style="background-color: yellow;"></div>
+          </div>
+        <input type="text" id="label" placeholder="Add Label..."><br> <!-- Added input box for label -->
+        <div><input type="checkbox" id="isStarred"> <label for="isStarred">Starred</label></div>
+        <div class="buttons">
+        <button onclick="addNote()">Add Note</button>
+        <button onclick="hideNoteInputs()">Close</button>
+    </div>
+    </div>
+</div>
+</div>
+    
+
+    <!-- List of notes -->
+    <ul id="notes-list">
+        
+    </ul>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- views/register.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Register</title>
+</head>
+<body class="my-form-body">
+    <div class="my-form">
+    <h1>Register</h1>
+    
+    <form action="/auth/register" method="POST" >
+        <div class="user">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div class="pass">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+        <button type="submit">Register</button>
+    </form>
+    <a href="/">Login</a>
+</div>
+</body>
+</html>

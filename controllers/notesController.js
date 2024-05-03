@@ -18,7 +18,10 @@ export const getAllNotes = async (req, res) => {
 
   const query = {}
 
-  if (search) query.title = { $regex: search, $options: 'i' }
+  if (search){ query.$or = [
+    { label: { $regex: search, $options: 'i' } },
+    { title: { $regex: search, $options: 'i' } }
+  ];}
 
   let result = Note.find(query).sort('-pinned -createdAt')
 

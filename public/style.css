@@ -230,10 +230,22 @@ i {
   margin: 10px;
   padding: 10px;
   height: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: darkcyan;
 }
 
 .logout-button>button>a{
+text-decoration: none;
+color: antiquewhite;
+}
 
+.logout-button>button>a:hover{
+  color: darkmagenta;
+}
+
+.logout-button>button:hover{
+  background-color: cadetblue;
 }
 
 /* drawer */

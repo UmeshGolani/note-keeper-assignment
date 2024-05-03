@@ -80,7 +80,7 @@ async function renderNotes(searchNotes=[]) {
             <button onclick="deleteNote('${note._id}')"><img src="img/svgexport-20.svg" alt=""/></button>
             <button onclick="editNote('${note._id}')"><img src="img/edit_icon.svg" alt="" /></button>
             <button id="editcolorbtn" onclick="editColorNote('${note._id}')"><img src="img/svgexport-16.svg" alt="" /></button>
-            <div id="editcolorOptions" class="hidden-color">
+            <div id="${note._id}" class="hidden-color" data-ns-id="${note._id}">
             <div class="editcolor" style="background-color: red;"></div>
             <div class="editcolor" style="background-color: blue;"></div>
             <div class="editcolor" style="background-color: green;"></div>
@@ -107,8 +107,10 @@ async function editColorNote(noteId) {
     
     
     // Show the color options div
-    const editcolorOptions = document.getElementById('editcolorOptions');
-    console.log(editcolorOptions.classList.value);
+    const editcolorOptions = document.getElementById(noteId);
+    console.log(noteId);
+    console.log(editcolorOptions.getAttribute("data-ns-id"));
+    const dataIdAttr = editcolorOptions.getAttribute("data-ns-id")
     if(editcolorOptions.classList.value == "hidden-color"){
     editcolorOptions.classList.remove('hidden-color');
     editcolorOptions.classList.add('editcolorOptionsActive');
@@ -130,8 +132,9 @@ async function editColorNote(noteId) {
         });
       });
 
-}
+      
 
+}
 
 
 
@@ -140,6 +143,7 @@ async function addNote() {
     const title = document.getElementById('title').value.trim();
     const text = document.getElementById('text').value.trim();
     const color = document.getElementById('colors').style.color;
+    const label = document.getElementById('label').value.trim();
     const isStarred = document.getElementById('isStarred').checked;
     document.getElementById('colors').style.color = "";
 
@@ -153,6 +157,7 @@ async function addNote() {
         title,
         text,
         color,
+        label,
         isStarred
     };
 

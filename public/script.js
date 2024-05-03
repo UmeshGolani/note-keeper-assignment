@@ -57,7 +57,7 @@ function hideOnOutsideClick(event) {
 // Function to fetch notes from API
 async function fetchNotes() {
     try {
-        const response = await fetch('http://localhost:5000/api/v1/notes/');
+        const response = await fetch('https://note-keeper-assingment.onrender.com/api/v1/notes/');
         const data = await response.json();
         return data.notes || [];
     } catch (error) {
@@ -97,7 +97,7 @@ async function renderNotes(searchNotes=[]) {
 
 async function updateNoteColor(noteId, color) {
     // Assuming you have an API endpoint to update the color of a note by its ID
-    await fetch(`http://localhost:5000/api/v1/notes/${noteId}`, {
+    await fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/${noteId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -166,7 +166,7 @@ async function addNote() {
     };
 
     try {
-        const response = await fetch('http://localhost:5000/api/v1/notes/', {
+        const response = await fetch('https://note-keeper-assingment.onrender.com/api/v1/notes/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -194,7 +194,7 @@ async function addNote() {
 document.getElementById("searchBtn").addEventListener("click", function () {
     const searchQuery = document.getElementById("search").value;
     console.log(searchQuery);
-    fetch(`http://localhost:5000/api/v1/notes/?search=${searchQuery}`)
+    fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/?search=${searchQuery}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("data",data.notes);
@@ -221,7 +221,7 @@ function renderNoteInHTML(note) {
 // Function to delete a note
 // async function deleteNote(noteId) {
 //     try {
-//         const response = await fetch(`http://localhost:5000/api/v1/notes/${noteId}`, {
+//         const response = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/${noteId}`, {
 //             method: 'DELETE'
 //         });
 //         if (response.ok) {
@@ -239,12 +239,12 @@ async function deleteNote(noteId) {
     console.log("Delete Function called");
     try {
         // Fetch the complete data of the note
-        const noteResponse = await fetch(`http://localhost:5000/api/v1/notes/${noteId}`)
+        const noteResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/${noteId}`)
         const noteData = await noteResponse.json();
         console.log("Note response in Delete method:", noteData.note);
 
         // Post the complete note data to the bin API
-        const binResponse = await fetch(`http://localhost:5000/api/v1/bin/`, {
+        const binResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/bin/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -257,7 +257,7 @@ async function deleteNote(noteId) {
         }
 
         // If moving to bin is successful, then proceed to delete
-        const deleteResponse = await fetch(`http://localhost:5000/api/v1/notes/${noteId}`, {
+        const deleteResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/${noteId}`, {
             method: 'DELETE'
         });
 
@@ -277,12 +277,12 @@ async function archieveNote(noteId) {
     console.log("Delete Function called");
     try {
         // Fetch the complete data of the note
-        const noteResponse = await fetch(`http://localhost:5000/api/v1/notes/${noteId}`)
+        const noteResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/${noteId}`)
         const noteData = await noteResponse.json();
         console.log("Note response in Delete method:", noteData.note);
 
         // Post the complete note data to the bin API
-        const binResponse = await fetch(`http://localhost:5000/api/v1/archieve/`, {
+        const binResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/archieve/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -295,7 +295,7 @@ async function archieveNote(noteId) {
         }
 
         // If moving to bin is successful, then proceed to delete
-        const deleteResponse = await fetch(`http://localhost:5000/api/v1/notes/${noteId}`, {
+        const deleteResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/${noteId}`, {
             method: 'DELETE'
         });
 

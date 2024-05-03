@@ -29,7 +29,7 @@ function hideOnOutsideClick(event) {
 // Function to fetch notes from API
 async function fetchNotes() {
     try {
-        const response = await fetch('http://localhost:5000/api/v1/bin/');
+        const response = await fetch('https://note-keeper-assingment.onrender.com/api/v1/bin/');
         const data = await response.json();
         return data.binNotes || [];
     } catch (error) {
@@ -89,12 +89,12 @@ async function restoreNote(noteId) {
     console.log("Restore Function called");
     try {
         // Fetch the complete data of the note
-        const binResponse = await fetch(`http://localhost:5000/api/v1/bin/${noteId}`)
+        const binResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/bin/${noteId}`)
         const binData = await binResponse.json();
         console.log("Note response in Delete method:", binData.binNote);
 
         // Post the complete note data to the bin API
-        const noteResponse = await fetch(`http://localhost:5000/api/v1/notes/`, {
+        const noteResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/notes/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ async function restoreNote(noteId) {
         }
 
         // If moving to bin is successful, then proceed to delete
-        const deleteResponse = await fetch(`http://localhost:5000/api/v1/bin/${noteId}`, {
+        const deleteResponse = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/bin/${noteId}`, {
             method: 'DELETE'
         });
 
@@ -146,7 +146,7 @@ async function addNote() {
     };
 
     try {
-        const response = await fetch('http://localhost:5000/api/v1/bin/', {
+        const response = await fetch('https://note-keeper-assingment.onrender.com/api/v1/bin/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -174,7 +174,7 @@ async function addNote() {
 document.getElementById("searchBtn").addEventListener("click", function () {
     const searchQuery = document.getElementById("search").value;
     console.log(searchQuery);
-    fetch(`http://localhost:5000/api/v1/bin/?search=${searchQuery}`)
+    fetch(`https://note-keeper-assingment.onrender.com/api/v1/bin/?search=${searchQuery}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("data",data.notes);
@@ -202,7 +202,7 @@ function renderNoteInHTML(note) {
 async function deleteNote(noteId) {
     
     try {
-        const response = await fetch(`http://localhost:5000/api/v1/bin/${noteId}`, {
+        const response = await fetch(`https://note-keeper-assingment.onrender.com/api/v1/bin/${noteId}`, {
             method: 'DELETE'
         });
         if (response.ok) {

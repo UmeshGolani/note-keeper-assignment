@@ -54,6 +54,21 @@ export const updateBinNote = async (req, res) => {
   }
 }
 
+export const getBinNoteById = async (req, res) => {
+  try {
+    const binNote = await Bin.findById(req.params.id)
+
+    if (!binNote) {
+      return res.status(404).json({ message: 'Note not found' })
+    }
+
+    res.status(200).json({ binNote })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Server Error' })
+  }
+}
+
 // @desc    Delete Bin
 // @route   DELETE /api/v1/binNotes/:id
 export const deleteBinNote = async (req, res) => {

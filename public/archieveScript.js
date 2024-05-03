@@ -50,7 +50,7 @@ async function renderNotes(searchNotes=[]) {
              ${note.text??`<p>${note.text}</p>`}
              <div class="notes-add-buttons">
             <button onclick="deleteNote('${note._id}')"><img src="img/svgexport-20.svg" alt=""/></button>
-            <button onclick="restoreNote('${note._id}')">Restore</button>
+            <button onclick="restoreNote('${note._id}')"><img src="img/svgexport-21.svg" alt="" /></button>
             </div>`;
             
         notesList.appendChild(li);

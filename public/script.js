@@ -74,8 +74,12 @@ async function renderNotes(searchNotes=[]) {
         const li = document.createElement('li');
         li.classList.add('notes');
         li.style.background = note.color;
+        if (note.label) {
+            labelContent = `Label : <p style="background-color: purple;display:"flex !important"; border-radius:"5px"">Label : ${note.label}</p>`;
+        }
         li.innerHTML = `<h1>${note.title}</h1>
              <p>${note.text}</p>
+             ${labelContent}
              <div class="notes-add-buttons">
             <button onclick="deleteNote('${note._id}')"><img src="img/svgexport-20.svg" alt=""/></button>
             <button onclick="editNote('${note._id}')"><img src="img/edit_icon.svg" alt="" /></button>

@@ -68,9 +68,13 @@ async function renderNotes(searchNotes=[]) {
         if (note.text) {
             textContent = `<p>${note.text}</p>`;
         }
+        if (note.label) {
+            labelContent = `<p>${note.label}</p>`;
+        }
         
         li.innerHTML = `<h1>${note.title}</h1>
              ${textContent}
+             ${labelContent}
              <div class="notes-add-buttons">
              <button onclick="deleteNote('${note._id}')"><img src="img/svgexport-20.svg" alt=""/></button>
              <button onclick="restoreNote('${note._id}')"><img src="img/svgexport-21.svg" alt="" /></button>
@@ -78,6 +82,46 @@ async function renderNotes(searchNotes=[]) {
         notesList.appendChild(li);
     });
 }
+
+
+//function to restore from archieve to notes
+async function restoreNote(noteId) {
+    console.log("Restore Function called");
+    try {
+        // Fetch the complete data of the note
+        const binResponse = await fetch(`http://localhost:5000/api/v1/bin/${noteId}`)
+        const binData = await binResponse.json();
+        console.log("Note response in Delete method:", binData.binNote);
+
+        // Post the complete note data to the bin API
+        const noteResponse = await fetch(`http://localhost:5000/api/v1/notes/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(binData.binNote)
+        });
+
+        if (!noteResponse.ok) {
+            throw new Error('Failed to move note to Note:', noteResponse.statusText);
+        }
+
+        // If moving to bin is successful, then proceed to delete
+        const deleteResponse = await fetch(`http://localhost:5000/api/v1/bin/${noteId}`, {
+            method: 'DELETE'
+        });
+
+        if (deleteResponse.ok) {
+            console.log('Note moved to bin and deleted successfully!');
+            renderNotes();
+        } else {
+            console.error('Failed to delete note:', deleteResponse.statusText);
+        }
+    } catch (error) {
+        console.error('Error moving note to bin and deleting:', error);
+    }
+}
+
 
 
 
